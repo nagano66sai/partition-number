@@ -1,0 +1,51 @@
+ 
+REM   素数の不思議な見つけ方(小林吹代) 技術評論社  P60-61  P74をご覧ください。
+DIM  a(101)  !分割数を格納する配列
+DIM  t(10000)
+MAT  t=ZER  
+
+!LET a(1)=1
+!LET a(2)=2
+!LET a(3)=3
+!LET a(4)=5
+!LET a(5)=7
+
+FOR   f=1  TO  30
+!オイラー関数の係数は1か-1か0
+   LET t(f*(3*f-1)/2)=(-1)^f  !オイラー関数の係数
+    
+   LET t(f*(3*f-1)/2+f)=(-1)^f    !オイラー関数の係数
+    
+NEXT   F
+
+FOR  r=1 TO  101
+ 
+
+ 
+   FOR  s=1  TO  r-1
+    
+    
+    
+      LET a(1)=1
+       
+       
+       
+      IF   s=0  OR  s=1 THEN LET a(r)=1
+      LET p=-t(s)*a(r-s)    !分割数を求める漸化式
+      LET ss=ss+p
+       
+       
+       
+   NEXT  s
+    
+   LET a(r)=ss
+   PRINT  r-1;"の分割数は";a(r);"です。"
+   LET ss=0
+    
+    
+    
+NEXT   R
+ 
+END
+
+
